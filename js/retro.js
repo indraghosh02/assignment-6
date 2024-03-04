@@ -1,13 +1,29 @@
-const loadPost = async () =>{
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+// const loadPost = async (searchCategory='comedy') =>{
+//     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchCategory}`);
+//     const data = await res.json();
+//     const post = data.posts;
+//     // console.log(post);
+//     displayPost(post);
+// }
+
+const loadPost = async (searchCategory) => {
+    let apiUrl = 'https://openapi.programming-hero.com/api/retro-forum/posts';
+    if (searchCategory) {
+        apiUrl += `?category=${searchCategory}`;
+    }
+
+    const res = await fetch(apiUrl);
     const data = await res.json();
-    const post = data.posts;
-    // console.log(post);
-    displayPost(post);
+    const posts = data.posts;
+
+    // Display all posts initially
+    displayPost(posts);
 }
 
 const displayPost = post =>{
     const postContainer = document.getElementById('post-container')
+    postContainer.textContent = '';
+
     // console.log(post)
     post.forEach(info =>
         {
@@ -15,12 +31,13 @@ const displayPost = post =>{
         //2 create a div 
         const postCard = document.createElement('div');
         postCard.classList = `flex h-[270px] w-[772px] bg-[#797DFC1A] rounded-2xl p-10 gap-5 mb-5`;
+        const indicatorColor = info.isActive ? 'bg-green-500' : 'bg-red-500';
         //set inner html
         postCard.innerHTML = 
         `
                 <div class="indicator">
                                     
-                <span class="indicator-item badge badge-secondary"></span>
+                <span class="indicator-item badge ${indicatorColor}"></span>
                 <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl"><img src="${info.image}" alt=""></div>
             </div>
             <div>
@@ -33,7 +50,7 @@ const displayPost = post =>{
                 <p class="text-[16px] text-[#12132D99] font-semibold pt-4">${info.description}</p>
                 <hr class="border-dashed my-4">
                 <div class="flex justify-between">
-                    <div class="flex gap-8">
+                    <div class="flex gap-8 ">
                         <div class="flex gap-4">
                             <img class="h-[21px] w-[21px]" src="images/icons8-comment-50.png" alt="" srcset="">
                             <h3 class="text-[16px] text-[#12132D99]">${info.comment_count}</h3>
@@ -59,6 +76,31 @@ const displayPost = post =>{
         postContainer.appendChild(postCard);
         
     })
+
+    toggleLoadingSpinner(false);
 }
+
+
+
+// for searching
+const handleSearch =() =>{
+    toggleLoadingSpinner(true);
+    const searchField = document.getElementById('search-field');
+    const searchText = searchField.value;
+    console.log(searchText);
+    loadPost(searchText);
+}
+
+const toggleLoadingSpinner = (isLoading) =>{
+    const loadingSpinner  = document.getElementById('loading-spinner');
+    if(isLoading){
+        loadingSpinner.classList.remove('hidden');
+    }
+    else{
+        loadingSpinner.classList.add('hidden');
+    }
+    
+}
+
 
 loadPost();

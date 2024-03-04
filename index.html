@@ -50,14 +50,15 @@
             <div class="relative flex flex-col items-center justify-center min-h-[575px] lg:h-[550px] bg-cover bg-center bg-no-repeat rounded-3xl bg-black overflow-hidden">
             <img class="object-cover w-full h-full opacity-70" src="images/bgbanner.png" alt="Overlay Image">
             <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-white w-[633px] h-[353px]">
+                <div class="text-white lg:w-[633px] lg:h-[353px]">
                     <h1 class="text-[64px]  font-bold">Welcome to the <span class="text-blue-500">ClassicLoom</span> Fourum </h1>
                     <p class="mt-2 w-[455px] h-[72px]">Embark on a journey of creativity and camaraderie as we welcome you to the heart of textile artistry</p>
                     <section class="">
-                        <input id="search-field" type="text" placeholder="search here anything" class="input input-bordered  max-w-xs h-[56px] w-[400px] rounded-3xl" />
-                        <button  class="btn  bg-[#797DFC]  h-[44px] w-[123px] rounded-3xl ml-[-131px] ">Search</button>
+                        <input id="search-field" type="text" placeholder="search here anything" class="input input-bordered text-black  max-w-xs h-[56px] w-[400px] rounded-3xl" />
+                        <button onclick="handleSearch()" class="btn  bg-[#797DFC]  h-[44px] w-[123px] rounded-3xl ml-[-131px] ">Search</button>
                         
                     </section>
+                    
                 </div>
                 <div class=" bg-white h-72 w-[371px] rounded-2xl p-10">
                     <div class="flex text-[24px] justify-between mb-4  ">
@@ -90,6 +91,9 @@
         </section>
 
     </header>
+    <div id="loading-spinner" class="ml-[740px] hidden">
+        <span class="loading loading-spinner loading-lg "></span>
+    </div>
     <main>
 
         <!-- lets discuss section -->
@@ -103,6 +107,7 @@
                     class=" lg:mt-8 mt-4 lg:max-w-2xl sm:max-w-3xl text-center text-[#12132D99] text-opacity-60 text-[18px] font-medium  leading-normal lg:mb-8 mb-6">
                     Join the conversation, where diverse perspectives converge and dialogues unfold, fostering a dynamic exchange of ideas within our thriving forum community.</p>
             </div>
+           
 
                
               
@@ -113,6 +118,7 @@
                   <!-- part-1 -->
 
                 <section>
+                    
                     <div id="post-container">
                         <!-- <div class="flex h-[270px] w-[772px] bg-[#797DFC1A] rounded-2xl p-10 gap-5">
                     
