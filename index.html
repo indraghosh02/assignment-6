@@ -19,12 +19,20 @@
                 </div>
                 <div class="flex-none">
                   <ul class="menu menu-horizontal px-1 gap-3">
-                    <!-- <li   class="bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center tooltip tooltip-open tooltip-left" data-tip="hello"><a><img class="pt-2" src="images/2842959-200.png" alt=""></a></li> -->
-                    <li   class="bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center "><a><img class="pt-2" src="images/2842959-200.png" alt=""></a></li>
-                    <li class="bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center"><a><img class="pt-2" src="images/icons8-pen-80.png" alt=""></a></li>
-                    <li class="bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center"><a><img class="pt-2" src="images/1250739.png" alt=""></a></li>
-                    <li class="bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center"><a><img class="pt-2" src="images/icons8-flag-50.png" alt=""></a></li>
-                  
+                    
+                    <div class="tooltip" data-tip="Home">
+                        <button class="btn bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center"><img class="" src="images/2842959-200.png" alt=""></button>
+                      </div>
+                      <div class="tooltip" data-tip="Edit">
+                        <button class="btn bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center"><img class="" src="images/icons8-pen-80.png" alt=""></button>
+                      </div>
+                      <div class="tooltip" data-tip="Add people">
+                        <button class="btn bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center"><img class="" src="images/1250739.png" alt=""></button>
+                      </div>
+                      <div class="tooltip" data-tip="Country">
+                        <button class="btn bg-[#e9eaed] rounded-full h-14 w-14 border-[#d7d7dd] text-center"><img class="" src="images/icons8-flag-50.png" alt=""></button>
+                      </div>
+
                     <li>
                         <a class="btn bg-[#797dfc]  text-white font-bold rounded-3xl text-[20px] h-14 w-36 ">Sign In
                            
@@ -100,9 +108,14 @@
 
             <div class="flex mt-5 justify-between " >
                 <div class="flex h-[270px] w-[772px] bg-[#797DFC1A] rounded-2xl p-10 gap-5">
-                    <div>
+                    <!-- <div>
                         <figure class="h-[72px] w-[72px]"><img src="images/1250739.png" alt="" /></figure>
-                    </div>
+                    </div> -->
+                    <div class="indicator">
+                        <!-- <span class="indicator-item badge ${post && post.isActive ? 'bg-green-500' : 'bg-red-500'}"></span>  -->
+                        <span class="indicator-item badge badge-secondary"></span>
+                        <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl">img?</div>
+                      </div>
                     <div>
                         <div class="flex gap-5">
                             <h3 class="text-[14px] text-black font-semibold">#Music</h3>
@@ -223,7 +236,7 @@
         
 
             <h1 class="text-[44px] text-black font-extrabold">ClassicLoom</h1>
-            <p class="text-[18px] w-[691px] text-[#12132D99] ">ClassicLoom, where timeless craftsmanship intertwines with modern elegance, weaving a legacy of quality and sophistication into every thread.</p>
+            <p class="text-[18px] w-[691px] text-[#12132D99] text-center">ClassicLoom, where timeless craftsmanship intertwines with modern elegance, weaving a legacy of quality and sophistication into every thread.</p>
 
         <div class="jutify content-center flex gap-8 mt-4">
             <img class="h-[30px] w-[30px]" src="Images/icons8-twitter-50.png" alt="Facebook">
